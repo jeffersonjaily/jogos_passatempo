@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-image: url("/static/fundo.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: gold;
+}
+
+/* Ajustes para fundo em diferentes telas */
+@media (min-aspect-ratio: 16/9) {
+  body {
+    background-size: 100% auto;
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  body {
+    background-size: auto 100%;
+  }
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  border-bottom: 2px solid goldenrod;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.golden-header {
+  color: gold;
+  text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.6);
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  gap: 20px;
+}
+
+.game-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.game-card h3 {
+  margin-top: 10px;
+  font-size: 20px;
+  color: gold;
+}
+
+.game-card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #00cc66;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.game-card a:hover {
+  background-color: #00994d;
+}
+
+footer {
+  margin-top: auto;
+  padding: 20px;
+  font-size: 14px;
+  color: gold;
+  text-align: center;
+}

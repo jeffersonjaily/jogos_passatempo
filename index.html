@@ -3,89 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Biblioteca de Jogos</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #1e3c72, #2a5298);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.7);
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      border-bottom: 2px solid #fff;
-    }
-
-    .games-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 30px;
-      gap: 20px;
-    }
-
-    .game-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid #fff;
-      border-radius: 10px;
-      width: 200px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .game-card h3 {
-      margin-top: 10px;
-      font-size: 20px;
-      color: #fff;
-    }
-
-    .game-card a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 8px 16px;
-      background-color: #00cc66;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .game-card a:hover {
-      background-color: #00994d;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 20px;
-      font-size: 14px;
-      color: #ccc;
-    }
-  </style>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-  <header>
+  <header class="golden-header">
     🎮 Minha Biblioteca de Jogos
   </header>
 
   <div class="games-container">
     <div class="game-card">
-      <h3>pife</h3>
+      <h3>Pife</h3>
       <a href="/jogos/cartas/pife/index.html">Jogar</a>
     </div>
     <div class="game-card">
@@ -95,19 +23,21 @@
     <div class="game-card">
       <h3>Jogo da Memória</h3>
       <a href="/jogos/jogo da memoria/index.html">Jogar</a>
-    </div>  <div class="game-card">
-      <h3>mario rocket</h3>
+    </div>
+    <div class="game-card">
+      <h3>Mario Rocket</h3>
       <a href="/jogos/jogo6/index.html">Jogar</a>
-    </div>  <div class="game-card">
-      <h3>Jogo da Memória</h3>
+    </div>
+    <div class="game-card">
+      <h3>Jogo da Memória 2</h3>
       <a href="memoria.html">Jogar</a>
     </div>
-    <!-- Adicione mais jogos aqui -->
   </div>
 
   <footer>
     &copy; 2025 - Seus Jogos Educacionais
   </footer>
 
+  <script src="/static/script.js"></script>
 </body>
 </html>
