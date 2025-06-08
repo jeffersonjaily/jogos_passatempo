@@ -1,0 +1,219 @@
+/* ---------- Variáveis de cor ---------- */
+:root {
+  --color-bg: #222;
+  --color-text: #eee;
+  --color-card-bg: #fff;
+  --color-spade: #2c3e50;   /* ♠ */
+  --color-heart: #e74c3c;   /* ♥ */
+  --color-diamond: #3498db; /* ♦ */
+  --color-club: #27ae60;    /* ♣ */
+  --color-back: #999;
+  --color-btn: #4caf50;
+  --color-btn-hover: #388e3c;
+  --color-btn-disabled: #888;
+  --color-slot-bg: #333;
+  --color-slot-border: #555;
+}
+
+/* ---------- Reset básico e estilo do body ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* ---------- Container principal ---------- */
+#game {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ---------- Títulos ---------- */
+h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 15px 0 10px;
+  font-size: 1.2rem;
+}
+
+/* ---------- Área de jogo (computer, player e organização) ---------- */
+.area {
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Contador de cartas do computador */
+#computer-hand-count {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* ---------- Área de deck e descarte ---------- */
+#deck-area {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 15px;
+}
+
+/* ---------- Cartas ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 8px;
+  width: 60px;
+  height: 90px;
+  line-height: 90px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px #0008 inset;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #000;
+}
+
+/* Verso do deck (quando as cartas estão viradas) */
+.card.back {
+  background-color: var(--color-back);
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Carta selecionada (sobe um pouco e ganha borda luminosa) */
+.card.selected {
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px #f1c40f;
+}
+
+/* Cores por naipe */
+.card.spade {
+  background-color: var(--color-spade);
+  color: #ecf0f1;
+}
+
+.card.heart {
+  background-color: var(--color-heart);
+  color: #ecf0f1;
+}
+
+.card.diamond {
+  background-color: var(--color-diamond);
+  color: #ecf0f1;
+}
+
+.card.club {
+  background-color: var(--color-club);
+  color: #ecf0f1;
+}
+
+/* ---------- Botões ---------- */
+#actions button,
+#clear-slots,
+#restart {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-btn);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+#actions button:disabled,
+#clear-slots:disabled {
+  background-color: var(--color-btn-disabled);
+  cursor: default;
+}
+
+#actions button:hover:not(:disabled),
+#clear-slots:hover:not(:disabled),
+#restart:hover {
+  background-color: var(--color-btn-hover);
+}
+
+/* ---------- Mensagem ---------- */
+#message {
+  margin-top: 10px;
+  min-height: 1.5em;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ---------- Slots de organização ---------- */
+#organize-area {
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.slot {
+  background-color: var(--color-slot-bg);
+  border: 2px dashed var(--color-slot-border);
+  width: 60px;
+  height: 90px;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.slot.filled {
+  border-style: solid;
+}
+
+.slot .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ---------- Responsividade para telas pequenas ---------- */
+@media (max-width: 480px) {
+  .card,
+  .slot {
+    width: 45px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 1rem;
+  }
+
+  #deck-area {
+    gap: 40px;
+  }
+
+  #actions button,
+  #clear-slots {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}

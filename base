@@ -1,0 +1,11 @@
+jogos web/
+│
+├── index.html         ← Tela principal
+├── style.css          ← Estilos globais
+├── script.js          ← Funcionalidades do menu
+├── jogos/
+│   ├── jogo1/
+│   │   ├── index.html
+│   │   ├── style.css
+│   │   └── script.js
+│   └── ... (outros jogos)

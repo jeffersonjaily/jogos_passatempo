@@ -1,0 +1,66 @@
+/* Fundo aplicado no body para cobrir toda a tela */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url('../img/fundo.png') no-repeat center bottom;
+  background-size: cover;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Container do jogo com altura maior para permitir plataformas visíveis */
+.game-container {
+  position: relative;
+  width: 100vw;
+  height: 800px; /* Aumentado para melhor visibilidade */
+  background: solid;
+  overflow: hidden;
+}
+
+/* Mario mais acima */
+#mario {
+  position: absolute;
+  bottom: 10px; /* Aumentado para deixar o Mario mais alto */
+  left: 80px;
+  width: 50px;
+  height: 50px;
+  background-image: url('../img/pulo_esquerda.png');
+  background-size: cover;
+  z-index: 10;
+  transition: left 0.1s linear;
+}
+
+/* Animação de pulo baseada no novo 'bottom' */
+.jump {
+  animation: jump 0.6s ease-out forwards;
+}
+
+@keyframes jump {
+  0%   { bottom: 100px; }
+  50%  { bottom: 200px; }
+  100% { bottom: 100px; }
+}
+
+/* Plataformas visíveis dentro do container */
+.platform {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-image: url('../img/plataforma.png');
+  background-size: cover;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+/* Obstáculos com altura ajustada para combinar com Mario */
+.obstacle {
+  position: absolute;
+  bottom: 100px;
+  width: 40px;
+  height: 40px;
+  background-image: url('../img/obstaculo.png');
+  background-size: cover;
+  z-index: 5;
+}
+
+

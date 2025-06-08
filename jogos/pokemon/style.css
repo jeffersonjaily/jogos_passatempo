@@ -1,0 +1,222 @@
+body {
+  font-family: 'Press Start 2P', cursive, Arial, sans-serif; /* Adicionado fonte pixelada se disponível */
+  text-align: center;
+  background-color: #282c34; /* Fundo mais escuro para contraste */
+  color: #e0e0e0; /* Cor do texto mais clara */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ocupa a altura total da viewport */
+}
+
+/* --- Container Principal do Jogo --- */
+#game {
+  background-color: #3a3f47; /* Fundo do container do jogo */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  max-width: 900px; /* Limita a largura máxima do jogo */
+  width: 95%; /* Garante que ocupe a largura disponível */
+  margin: 20px auto; /* Centraliza e adiciona margem */
+}
+
+h1 {
+  color: #ffcb05; /* Cor amarela do Pokémon */
+  text-shadow: 2px 2px #3c5aa6; /* Sombra azul para efeito */
+  margin-bottom: 25px;
+}
+
+h2, h3 {
+  margin: 15px 0;
+  color: #a0a0a0;
+}
+
+/* --- Seção de Escolha de Pokémon --- */
+#choose-pokemon {
+  padding: 20px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  background-color: #4a4f57;
+  margin-top: 20px;
+}
+
+#pokemon-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Quebra em múltiplas linhas se necessário */
+  justify-content: center;
+  gap: 10px; /* Espaçamento entre os botões */
+  margin-top: 20px;
+}
+
+#pokemon-buttons button {
+  background-color: #007bff; /* Azul para os botões de escolha */
+  padding: 12px 20px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  min-width: 120px; /* Garante tamanho mínimo para os botões */
+}
+
+#pokemon-buttons button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
+}
+
+/* --- Área de Batalha --- */
+#battle-area {
+  display: flex; /* Permite posicionamento flexível */
+  flex-direction: column; /* Coloca elementos em coluna por padrão */
+  gap: 30px; /* Espaçamento entre player, inimigo e ações */
+  align-items: center; /* Centraliza itens horizontalmente */
+}
+
+/* Contêiner para cada Pokémon (Jogador e Inimigo) */
+.pokemon-container {
+  background-color: #4a4f57;
+  border: 2px solid #666;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%; /* Ocupa boa parte da largura */
+  max-width: 350px; /* Limita a largura máxima para cada Pokémon */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pokemon-container h2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.4em;
+  margin: 0; /* Remove margem padrão para melhor controle */
+}
+
+/* Barras de HP */
+.hp-bar { /* Usando a classe mais específica do seu HTML: hp-bar */
+  width: 90%; /* Largura da barra dentro do container do Pokémon */
+  background: #555;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 25px; /* Altura da barra */
+  overflow: hidden; /* Garante que o preenchimento não "vaze" */
+}
+
+.hp-fill { /* Usando a classe mais específica do seu HTML: hp-fill */
+  height: 100%; /* Ocupa toda a altura do hp-bar */
+  background-color: #dc3545; /* Vermelho vibrante para HP */
+  border-radius: 5px;
+  line-height: 25px; /* Centraliza o texto verticalmente */
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  transition: width 0.5s ease-in-out; /* Animação suave da barra */
+}
+
+/* Imagens dos Pokémon */
+.pokemon-container img {
+  width: 120px; /* Tamanho fixo para as imagens dos Pokémon */
+  height: 120px;
+  image-rendering: pixelated; /* Para sprites antigos */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  margin-top: 10px;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.7)); /* Sombra para destacá-los */
+}
+
+/* --- Botões de Ações (Ataques) --- */
+#actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px; /* Limita a largura dos botões de ação */
+  margin-top: 20px;
+}
+
+#actions button {
+  background-color: #ffc107; /* Amarelo para botões de ataque */
+  color: #333;
+  font-weight: bold;
+  padding: 15px 25px;
+  flex: 1 1 45%; /* Permite que os botões cresçam, mas mantenham duas colunas */
+  max-width: 48%; /* Para duas colunas, com gap */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#actions button:hover:not(:disabled) {
+  background-color: #e0a800;
+  transform: scale(1.02);
+}
+
+#actions button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* --- Área de Mensagens --- */
+#message {
+  background-color: #3c5aa6; /* Azul escuro */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+  width: 90%;
+  max-width: 600px;
+  min-height: 40px; /* Garante uma altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Botão de Reiniciar --- */
+#restart-btn {
+  margin-top: 20px;
+  background-color: #17a2b8; /* Azul claro para reiniciar */
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#restart-btn:hover {
+  background-color: #138496;
+}
+
+/* --- Responsividade (Para telas menores) --- */
+@media (min-width: 768px) {
+  #battle-area {
+    flex-direction: row; /* Em telas maiores, coloca player e inimigo lado a lado */
+    justify-content: space-around; /* Espaçamento entre eles */
+    align-items: flex-start; /* Alinha no topo */
+  }
+
+  .pokemon-container {
+    width: 45%; /* Ajusta largura para caber lado a lado */
+    max-width: none; /* Remove a limitação de largura */
+  }
+
+  #actions {
+    position: absolute; /* Posiciona ações abaixo da área de batalha */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Deixa a largura ser definida pelo conteúdo */
+    max-width: 500px;
+  }
+  #game {
+    position: relative; /* Para posicionar #actions absolutamente */
+    min-height: 500px; /* Garante espaço para o botão de ações */
+  }
+}

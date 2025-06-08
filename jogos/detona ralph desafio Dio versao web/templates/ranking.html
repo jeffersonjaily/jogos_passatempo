@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ranking - Top 10 Pontuações</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+            text-transform: uppercase;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn-back, .btn-play-sound {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        .btn-back:hover, .btn-play-sound:hover {
+            background-color: #1f618d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ranking - Top 10 Pontuações</h1>
+
+    {% if pontuacoes %}
+    <table>
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>Pontuação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i, p in enumerate(pontuacoes, 1) %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>{{ p.nome }}</td>
+                <td>{{ p.pontuacao }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Nenhuma pontuação registrada ainda.</p>
+    {% endif %}
+
+    <a href="/" class="btn-back">Voltar ao jogo</a>
+
+    <button id="btnPlaySound" class="btn-play-sound">Ouvir Som Iniciar 🎵</button>
+
+    <audio id="audioIniciar" src="{{ url_for('static', filename='audios/iniciar.mp3') }}" preload="auto"></audio>
+
+    <script>
+        const audioIniciar = document.getElementById('audioIniciar');
+        const btnPlaySound = document.getElementById('btnPlaySound');
+
+        // Tenta tocar automaticamente (provavelmente será bloqueado)
+        window.addEventListener('load', () => {
+            audioIniciar.volume = 0.5;
+            audioIniciar.play().catch(() => {
+                console.log('Autoplay bloqueado, aguarde clique do usuário.');
+            });
+        });
+
+        // Botão para ativar som manualmente
+        btnPlaySound.addEventListener('click', () => {
+            audioIniciar.currentTime = 0;
+            audioIniciar.play();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogo de Pife</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="game">
+    <h1>Jogo de Pife</h1>
+
+    <!-- Área do computador (mostra apenas a carta de topo do descarte e número de cartas em mão) -->
+    <div id="computer-area" class="area">
+      <h2>Computador</h2>
+      <div id="computer-hand-count">Cartas na mão: <span id="computer-count">9</span></div>
+      <div class="cards" id="computer-cards">
+        <!-- Opcional: aqui poderia mostrar as cartas viradas, mas por enquanto apenas count -->
+      </div>
+    </div>
+
+    <!-- Pilha de compra e descarte -->
+    <div id="deck-area">
+      <div id="deck" class="card back"></div>
+      <div id="discard-pile" class="card"></div>
+    </div>
+
+    <!-- Botões de ação do jogador -->
+    <div id="actions">
+      <button id="draw-deck">Comprar do Monte</button>
+      <button id="draw-discard">Comprar do Descarte</button>
+      <button id="discard">Descartar</button>
+      <button id="declare-win">Bater (Ganhar)</button>
+      <button id="organize-auto">Organizar Automático</button>
+      <button id="organize-manual">Modo Manual</button>
+      <button id="restart">Reiniciar Jogo</button>
+    </div>
+
+    <!-- Área de mensagens do jogo -->
+    <div id="message"></div>
+
+    <!-- Área da mão do jogador -->
+    <div id="player-area" class="area">
+      <h2>Seu Jogo</h2>
+      <div id="player-hand" class="cards"></div>
+    </div>
+
+    <!-- Área para organizar em 9 lugares (3 trincas) -->
+    <div id="organize-area">
+      <h2>Organização das Trincas (9 espaços)</h2>
+      <div id="slots" class="slots-grid">
+        <!-- 9 slots vazios -->
+        <div class="slot" data-index="0"></div>
+        <div class="slot" data-index="1"></div>
+        <div class="slot" data-index="2"></div>
+        <div class="slot" data-index="3"></div>
+        <div class="slot" data-index="4"></div>
+        <div class="slot" data-index="5"></div>
+        <div class="slot" data-index="6"></div>
+        <div class="slot" data-index="7"></div>
+        <div class="slot" data-index="8"></div>
+      </div>
+      <button id="clear-slots">Limpar Organização</button>
+    </div>
+
+    <!-- Áudios -->
+    <audio id="bg-music" src="https://cdn.pixabay.com/audio/2022/03/15/audio_58b8c1beaa.mp3" loop></audio>
+    <audio id="win-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_56babb1508.mp3"></audio>
+    <audio id="lose-sound" src="https://cdn.pixabay.com/audio/2022/03/07/audio_af52e3a4a4.mp3"></audio>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

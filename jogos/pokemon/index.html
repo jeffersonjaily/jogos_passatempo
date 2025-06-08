@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Batalha Pokémon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="choose-pokemon">
+    <h2>Escolha seu Pokémon</h2>
+    <div id="pokemon-selector"></div>
+  </div>
+
+  <div id="battle-area" style="display:none;">
+    <div class="status">
+      <h3 id="player-pokemon"></h3>
+      <p id="player-status"></p>
+      <div class="bar hp"><div id="player-hp" class="fill">HP</div></div>
+      <div class="bar mp"><div id="player-mp" class="fill">MP</div></div>
+    </div>
+    <div class="pokemon-imgs">
+      <img id="player-img" src="" />
+      <span>VS</span>
+      <img id="enemy-img" src="" />
+    </div>
+    <div class="status">
+      <h3 id="enemy-pokemon"></h3>
+      <p id="enemy-status"></p>
+      <div class="bar hp"><div id="enemy-hp" class="fill">HP</div></div>
+      <div class="bar mp"><div id="enemy-mp" class="fill">MP</div></div>
+    </div>
+    <p id="message"></p>
+    <div id="actions"></div>
+    <button id="restart-btn" onclick="reiniciarJogo()">Reiniciar</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

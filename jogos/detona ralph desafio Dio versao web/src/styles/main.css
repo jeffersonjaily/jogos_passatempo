@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.difficulty-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000cc;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  z-index: 999;
+}
+
+.btn-difficulty {
+  padding: 20px 40px;
+  font-size: 16px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-difficulty:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../images/wall.png") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border-bottom: 5px solid #ffd700;
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu h2 {
+  font-size: 0.7rem;
+}
+
+.menu-sound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 6px;
+}
+
+#btnSound {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+  transition: color 0.3s ease;
+}
+
+#btnSound.muted {
+  color: gray;
+}
+
+#volumeControl {
+  width: 80px;
+  cursor: pointer;
+}
+
+.menu-lives {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-time  h2:nth-child(2),
+.menu-lives h2:nth-child(2),
+.menu-score h2:nth-child(2) {
+  margin-top: 1rem;
+  color: #ffd700;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+}
+
+.panel-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.square {
+  flex: 1 1 calc(30% - 1rem);
+  max-width: 100px;
+  aspect-ratio: 1 / 1;
+  background-image: url("../images/janela.png");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ffd700;
+  position: relative;
+}
+
+.square::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/wall.png");
+  background-size: cover;
+  opacity: 0.15;
+  z-index: 10;
+}
+
+.enemy {
+  background-image: url("../images/ralph.png") !important;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Responsividade */
+@media (min-width: 1024px) {
+  .square {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .square {
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .square {
+    max-width: 70px;
+  }
+}

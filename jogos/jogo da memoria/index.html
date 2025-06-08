@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo da Memória</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Jogo da Memória</h1>
+
+  <div class="controls">
+    <select id="difficulty">
+      <option value="easy">Fácil</option>
+      <option value="medium">Médio</option>
+      <option value="hard">Difícil</option>
+      <option value="very-hard">Muito Difícil</option>
+    </select>
+    <button id="start-button">Iniciar</button>
+    <button id="restart-button">Reiniciar</button>
+  </div>
+
+  <div id="timer">Tempo: 60</div>
+  <div id="chances">Viradas restantes: 20</div>
+
+  <div id="game-board"></div>
+  <div id="message" style="display: none;">🎉 Parabéns, você venceu!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogo de Pife Simples</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Jogo de Pife</h1>
+
+  <div id="game">
+
+    <div id="player-hand" class="hand">
+      <h2>Sua mão</h2>
+      <div class="cards"></div>
+    </div>
+
+    <div id="deck-area">
+      <h2>Monte</h2>
+      <div id="deck" class="card back">?</div>
+      <h2>Descarte</h2>
+      <div id="discard-pile" class="card"></div>
+    </div>
+
+    <div id="actions">
+      <button id="draw-deck">Comprar do Monte</button>
+      <button id="draw-discard">Comprar do Descarte</button>
+      <button id="discard" disabled>Descartar</button>
+      <button id="declare-win" disabled>Bater</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

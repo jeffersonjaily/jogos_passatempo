@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogo do Mario</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+
+  <!-- Áudio de fundo e efeitos -->
+  <audio id="bg-music" src="static/audio/fundo.mp3" autoplay loop></audio>
+  <audio id="jump-sound" src="static/audio/pulo.mp3"></audio>
+  <audio id="gameover-sound" src="static/audio/gameover.mp3"></audio>
+
+  <!-- Container principal do jogo -->
+  <div class="game-container">
+
+    <!-- Personagem Mario -->
+    <div id="mario" aria-label="Mario"></div>
+
+    <!-- Plataformas -->
+    <div class="platform" style="left: 150px; bottom: 300px;"></div>
+    <div class="platform" style="left: 400px; bottom: 400px;"></div>
+    <div class="platform" style="left: 700px; bottom: 200px;"></div>
+
+    <!-- Obstáculos que podem ser adicionados via JS -->
+    <div id="obstacle-container"></div>
+
+  </div>
+
+  <!-- Script do jogo -->
+  <script src="static/js/script.js"></script>
+</body>
+</html>
